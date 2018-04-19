@@ -1,8 +1,6 @@
 import requests
 import json
 
-data = json.load(open('songIdDtb.json'))
-
 def createToken( ):
     url = "https://graph.nhaccuatui.com/v1/commons/token"
     headers={
@@ -17,18 +15,4 @@ def createToken( ):
     return token
 
 token = createToken()
-
-def songJson(id,token):
-    linklist = 'https://graph.nhaccuatui.com/v1/songs/'+id+'?access_token='+token
-    req = requests.get(linklist)
-    data = json.loads(req.text)
-    if 'data' in data:
-        return data['data']
-jsonDtb =[]
-
-for val in data:
-    res = songJson(val,token)
-    if res != None:
-        jsonDtb.append(res)
-with open('jsonDtb.json', 'w') as outfile:
-    json.dump(jsonDtb, outfile)
+print(token);

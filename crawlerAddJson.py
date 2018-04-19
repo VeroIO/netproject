@@ -4,7 +4,7 @@ import urllib.request
 import json
 
 
-response = urllib.request.urlopen('https://www.nhaccuatui.com/')
+response = urllib.request.urlopen('https://www.nhaccuatui.com/playlist/top-100-pop-usuk-hay-nhat-va.zE23R7bc8e9X.html')
 
 pagecontent=response.read().decode('utf-8')
 #get All link
@@ -27,13 +27,13 @@ def getID(link):
     else:
         return
 
-songIdDtb=[]
-
+songIdDtb= json.load(open('songIdDtb.json'))
+ 
 for link in nhaccuatuilink:
     songId = getID(link)
     if songId != None:
         songIdDtb.append(songId)
-#Remove 1 value of array because it is playlist
+# Remove 1 value of array because it is playlist
 
 del songIdDtb[0]
 with open('songIdDtb.json', 'w') as outfile:
