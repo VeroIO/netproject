@@ -2,7 +2,6 @@
 
 $data = file_get_contents('jsonDtb.json');
 $json = json_decode($data);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +33,8 @@ const ap = new APlayer({
     <?php foreach ($json as $song ) {
     ?>
     {
-        name: '<?php echo $song->{2}; ?>',
-        artist: '<?php echo $song->{3}; ?>',
+        name: "<?php echo $song->{2}; ?>",
+        artist: "<?php echo $song->{3}; ?>",
         url: '<?php echo $song->{7}; ?>',
         cover: '<?php echo $song->{8}; ?>',
     },

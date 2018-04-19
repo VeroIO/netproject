@@ -22,11 +22,13 @@ def songJson(id,token):
     linklist = 'https://graph.nhaccuatui.com/v1/songs/'+id+'?access_token='+token
     req = requests.get(linklist)
     data = json.loads(req.text)
-    return data['data']
+    if 'data' in data:
+        return data['data']
 jsonDtb =[]
 
 for val in data:
     res = songJson(val,token)
-    jsonDtb.append(res)
+    if res != None:
+        jsonDtb.append(res)
 with open('jsonDtb.json', 'w') as outfile:
     json.dump(jsonDtb, outfile)

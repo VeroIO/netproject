@@ -31,7 +31,7 @@ const ap = new APlayer({
     listMaxHeight: '90px',
     lrcType: 0,    
     audio: [{
-        name: '<?php echo $json[0]->{2}; ?>',
+        name: "<?php echo $json[0]->{2}; ?>",
         artist: '<?php echo $json[0]->{3}; ?>',
         url: '<?php echo $json[0]->{7}; ?>',
         cover: '<?php echo $json[0]->{8}; ?>',
